@@ -10,11 +10,17 @@ const config = {
     port: 1987
   },
   entry: {
-    app: './src/script/app.js'
+    app: './src/script/app.js',
+    /* create a vendor chunk for grabbing vendor resources */
+    vendor: [
+      'lodash'
+    ]
+    /* Create another chunk for a different page etc. */
+    // app2: './src/script/app2.js'
   },
   output: {
     path: `${__dirname}/public`,
-    filename: 'app.js'
+    filename: '[name].js'
   },
   module: {
     loaders: [
@@ -42,8 +48,20 @@ const config = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './src/markup/index.html'
+      template: './src/markup/index.html',
+      filename: 'index.html',
+      chunks: ['vendor', 'app']
     }),
+    new webpack.optimize.CommonsChunkPlugin(
+      /* chunkName= */'vendor',
+      /* filename= */'vendor.js'
+    ),
+    /* Example if we wanted to create a second page */
+    // new HtmlWebpackPlugin({
+    //   template: './src/markup/index.html',
+    //   chunks: ['app2'],
+    //   filename: 'app.html'
+    // }),
     new ExtractTextPlugin('app.css'),
     /* If --dist is present in process opts then minimize bundles */
     (IS_DIST) ? new webpack.optimize.UglifyJsPlugin() : function () {}

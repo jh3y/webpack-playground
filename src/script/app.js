@@ -1,4 +1,5 @@
 import '../style/style.styl';
+import 'lodash';
 
 import { Binarizer } from './components/binarizer/binarizer';
 
