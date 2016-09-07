@@ -8,17 +8,22 @@ Accompanying blog post [here](TBC).
 This repo is setup using a self-documented `Makefile`.
 
   1. Clone the repo
-  ```shell
-    git clone https://github.com/jh3y/webpack-playground.git
-  ```
+    
+    ```shell
+      git clone https://github.com/jh3y/webpack-playground.git
+    ```
+  
   2. Setup
-  ```shell
-    make setup
-  ```
+  
+    ```shell
+      make setup
+    ```
+  
   3. Get hacking :neckbeard:
-  ```shell
-    make develop
-  ```
+  
+    ```shell
+      make develop
+    ```
 
 ---
 
