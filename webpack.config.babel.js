@@ -41,10 +41,9 @@ const config = {
         loader: ExtractTextPlugin.extract('style-loader', 'css-loader!postcss-loader!stylus-loader')
       }
     ]
-    ,
-    resolve: {
-      extensions: [ '', '.js', '.styl' ]
-    }
+  },
+  resolve: {
+    extensions: [ '', '.js', '.styl' ]
   },
   plugins: [
     new HtmlWebpackPlugin({
