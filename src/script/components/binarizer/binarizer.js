@@ -2,7 +2,7 @@
 import './binarizer.styl';
 
 /* Import math utility functions */
-import { toBinary } from '../../modules/convert';
+import { toBinary } from 'modules/convert';
 
 /* The exposed constructor */
 export class Binarizer {

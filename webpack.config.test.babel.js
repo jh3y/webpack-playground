@@ -1,4 +1,5 @@
-const webpack           = require('webpack');
+const webpack = require('webpack');
+const path    = require('path');
 
 const config = {
   entry: {
@@ -28,6 +29,10 @@ const config = {
     ]
   },
   resolve: {
+    root: [
+      path.resolve('./src/script'),
+      path.resolve('./src/style')
+    ]
     extensions: [ '', '.js', '.jsx' ]
   },
   plugins: [],

@@ -2,6 +2,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const autoprefixer      = require('autoprefixer');
 const webpack           = require('webpack');
+const path              = require('path');
 
 const IS_DIST = (process.argv.indexOf('--dist') !== -1) ? true : false;
 
@@ -38,11 +39,15 @@ const config = {
         test: /\.styl$/,
         include: /(src\/)/,
         // loader: 'style-loader!css-loader!postcss-loader!stylus-loader'
-        loader: ExtractTextPlugin.extract('style-loader', 'css-loader!postcss-loader!stylus-loader')
+        loader: ExtractTextPlugin.extract('style-loader', 'css-loader!postcss-loader!stylus-loader?paths=src/style')
       }
     ]
   },
   resolve: {
+    root: [
+      path.resolve('./src/script'),
+      path.resolve('./src/style')
+    ],
     extensions: [ '', '.js', '.styl' ]
   },
   plugins: [
